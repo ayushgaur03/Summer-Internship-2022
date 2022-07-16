@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <html>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Animate Assingment 2</title>
+    </head>
+    <body>
+      <figure>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg"
+          id="i1"
+          alt="Image for javascript"
+          style="float: inline-end; width: 82px; height: 82px"
+        />
+        <figcaption>JavaScript</figcaption>
+      </figure>
+      <figure>
+        <img
+          src="https://www.vectorlogo.zone/logos/nodejs/nodejs-horizontal.svg"
+          id="i2"
+          alt="Image for Node js"
+          style="float: inline-end; width: 182px; height: 82px"
+        />
+        <figcaption>Node JavaScript</figcaption>
+      </figure>
+      <figure>
+        <img
+          src="https://cdn.worldvectorlogo.com/logos/react-1.svg"
+          id="i3"
+          alt="Image for React"
+          style="float: inline-end; width: 82px; height: 82px"
+        />
+        <figcaption>React</figcaption>
+      </figure>
+    </body>
+    <script>
+      var img1 = document.getElementById("i1");
+      var img2 = document.getElementById("i2");
+      var img3 = document.getElementById("i3");
+
+      function move(x) {
+        return new Promise((resolve, reject) => {
+          console.log("hii");
+
+          var poe = 0;
+          anim = setInterval(animate, 5);
+          function animate() {
+            if (poe == 400) {
+              x.style.paddingTop = 0;
+              clearInterval(anim);
+              resolve();
+            } else {
+              poe++;
+              x.style.paddingTop = poe + "px";
+            }
+          }
+        });
+      }
+
+      async function ani() {
+        await move(img1);
+        await move(img2);
+        await move(img3);
+      }
+      ani();
+    </script>
+  </html>
+</html>
